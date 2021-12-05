@@ -15,3 +15,4 @@ function primes(s, e){
     }
     return arr.length > 0 ? arr : null;
   }
+  primes(1, 100);
