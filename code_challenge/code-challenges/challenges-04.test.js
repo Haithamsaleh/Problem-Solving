@@ -8,6 +8,8 @@ Write a function called addTwo that takes in an array and adds two to every valu
 
 const addTwo = (arr) => {
   // Solution code here...
+  return arr.map(ele=>ele+=2)
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -19,6 +21,12 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
+  for(let i=0; i<str.length;i++){ 
+    if (str.includes('w')) {
+      return true;
+
+    }else{return false;}
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,6 +43,9 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
+  const regex = /\d/;
+  let r = regex.test(input);
+  return r;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +57,9 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
+  const regex = /\bworld\b/;
+  let r = regex.test(input);
+  return r ;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,6 +81,9 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  // const arr0 = [];
+  // let regex = /^[a-zA-Z]/;
+  // let regex0 = /[\s.),]+/;
 };
 
 /* ------------------------------------------------------------------------------------------------

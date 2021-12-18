@@ -56,6 +56,9 @@ let characters = [
 
 const sortByChildren = (charArray) => {
 	// Solution code here...
+	 return charArray.sort((a, b) => {
+    return a.children.length - b.children.length || a.house - b.house;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,6 +84,7 @@ const courseInfo = {
 
 const getCourseKeys = (obj) => {
 	// Solution code here...
+	return Object.keys(obj)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,6 +97,9 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
 	// Solution code here...
+	let x = Object.keys(obj).find((key) => obj[key] == value);
+  if (x){ return true;}
+  else {return false;}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -116,6 +123,12 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
 	// Solution code here...
+	let arr = [];
+	for (let i = 0; i < Object.keys(obj).length; i++) {
+	  let elem = Object.keys(obj)[i] + ": " + Object.values(obj)[i];
+	  arr.push(elem);
+	}
+	return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,6 +140,11 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
 	let houses = [];
 	// Solution code here...
+	arr.forEach((elem) => {
+		houses.push(elem.house);
+	  });
+	
+	  return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -143,6 +161,11 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
 	// Solution code here...
+	let child = false;
+	for (let i=0; i < arr.length; i++) {
+	  if (arr[i].name == character && arr[i].children.length) child = true;
+	}
+	return child;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,6 +178,11 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
 	// Solution code here...
+	let child = false;
+	for (let i=0; i < arr.length; i++) {
+	  if (arr[i].name === character && arr[i].children.length) child=true;
+	}
+	return child;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -165,6 +193,15 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
 	// Solution code here...
+	let total = 0;
+
+	arr.forEach((elem) => {
+	  if (elem.name) total += 1;
+	  if (elem.spouse) total += 1;
+	  if (elem.children) total += elem.children.length;
+	});
+  
+	return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -180,6 +217,15 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
 	const sizes = [];
 	// Solution code here...
+	arr.forEach((elem) => {
+		let members = 0;
+		if (elem.name) members += 1;
+		if (elem.spouse) members += 1;
+		if (elem.children) members += elem.children.length;
+		sizes.push({ house: elem.house, members });
+	  });
+	
+	  return sizes;
 };
 
 /* ------------------------------------------------------------------------------------------------

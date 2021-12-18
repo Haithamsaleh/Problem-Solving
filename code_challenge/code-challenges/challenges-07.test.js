@@ -8,6 +8,9 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 
 const replaceZeros = (string) => {
   // Solution code here...
+
+  return string.replace(/[0]/g, "zero");
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -18,6 +21,9 @@ Write a function named addOne that, given an array of numbers, uses map to retur
 
 const addOne = (arr) => {
   // Solution code here...
+  return arr.map((num) => {
+    return num + 1;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,6 +34,9 @@ Write a function named addQuestion that, given an array of strings, uses map to 
 
 const addQuestion = (arr) => {
   // Solution code here...
+  return arr.map((str) => {
+    return str + "?";
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,6 +61,11 @@ Write a function named forEachTwoToThe that produces the same output as your for
 
 const forEachTwoToThe = (arr) => {
   // Solution code here...
+  let arr0 = [];
+  for (let i = 0; i < arr.length; i++) {
+    arr0.push(Math.pow(2, arr[i]));
+  }
+  return arr0;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,7 +76,13 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 
 const mapTwoToThe = (arr) => {
   // Solution code here...
+  let arr0 = [];
+  arr.forEach(elem=> {
+    arr0.push(Math.pow(2, elem));
+  })
+  return arr0;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -76,6 +96,8 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = (arr) => {
   // Solution code here...
+  return arr.map((item) => item.charCodeAt(0));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,6 +112,13 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = (arr) => {
   // Solution code here...
+  return arr.map((elem) => {
+
+   if (typeof elem != "number") {return "N/A";}
+
+    else if (elem % 2 == 0) {return "even";}
+    else {return "odd";}
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,8 +164,15 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+ // Solution code here...
+  let arr0=[]
+  arr.forEach(item=>{
+    arr0.push(item.ability.name)
+  })
+  return arr0;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -183,6 +219,11 @@ const snorlaxStats = {
 
 const extractStats = (arr) => {
   // Solution code here...
+  let arr0=[]
+  arr.forEach(elem=>{
+    arr0.push({name:elem.stat.name, total:elem.effort+elem.baseStat})
+  })
+  return arr0;
 };
 
 /* ------------------------------------------------------------------------------------------------

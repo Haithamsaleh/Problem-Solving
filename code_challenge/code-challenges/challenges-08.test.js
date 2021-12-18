@@ -9,6 +9,8 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str) {
   // Solution code here...
+  return str.slice(-10).split('')
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,6 +23,8 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 
 const typeNum = (arr) => {
   // Solution code here...
+  return arr.filter(element => typeof element=='number')
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,6 +37,8 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 
 const containsAnd = (arr) => {
   // Solution code here...
+  return arr.filter(elem=>elem.includes('and')?elem:null)
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +51,8 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  return arr.filter(elem=>elem%2==1)
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,6 +67,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  return arr.filter(elem=>elem.match(/[aeiou]/g))
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,6 +81,8 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  return arr.filter(elem=>!forbiddenValues.includes(elem))
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,6 +126,8 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   // Solution code here...
+  return arr.filter(elem=>elem.baseStat>minBaseStat)
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,6 +140,11 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  let arr0 = []
+  arr.forEach(elem=>{
+    if(elem.baseStat>minBaseStat) arr0.push(elem.stat.name)
+  })
+  return arr0
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -179,6 +198,8 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  return arr.filter(elem=>!elem.children)
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,6 +212,9 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+  let arr0=[]
+  arr.forEach(elem=>typeof elem=='number'?elem%2==0?arr0.push('even'):arr0.push('odd'):null)
+  return arr0
 };
 
 /* ------------------------------------------------------------------------------------------------

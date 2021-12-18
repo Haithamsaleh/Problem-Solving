@@ -13,6 +13,11 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
   // Solution code here...
+  let arr = [];
+  people.map((item) => {
+    arr.push(`${item.firstName} ${item.lastName}`);
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,6 +30,10 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
+  return pin.
+  toString()
+  .match(/^\d{4}$/g)? true:false
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,6 +46,12 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 
 const validateWord = (word) => {
   // Solution code here...
+  return word
+  .toString()
+  .match(/^[A-Za-z]+$/i)
+   && word.length.toString()
+   .match(/^[5-9]$|10/g) ? true:false;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -49,6 +64,10 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
+  return string
+  .toString()
+  .match(/[A-Za-z]\d/g) ? true:false
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -69,6 +88,11 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  if(email.
+    toString()
+    .match(/^([a-zA-Z0-9]+|[a-zA-Z0-9]+.[a-zA-Z0-9]+)@[a-zA-Z]+(.net|.com|.org)$/g))
+    { return true
+    }else { return false}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,6 +118,10 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+  return phoneNumber
+  .toString()
+  .match(/^(\(\d{3}\)(\s\d{3}-\d{4}|\d{3}\s\d{4})|\d{3}\s(\d{3}-\d{4}|\d{3}\s\d{4})|\d{3}-(\d{7}|\d{3}\s\d{4}|\d{3}-\d{4})|\d{6}-\d{4}|\d{10}|\d{3}\s\d{7})$/g) ? true:false;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -107,6 +135,8 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = (elements) => {
   // Solution code here...
+  let x = elements.map(elem=>elem.match(/\/.+?(?=>)/g))
+  return x.join(",").split(",")
 };
 
 /* ------------------------------------------------------------------------------------------------

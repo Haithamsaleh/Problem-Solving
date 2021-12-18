@@ -10,6 +10,10 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
+    return arr.reduce((item, elem) => {
+    if (elem > item) item = elem;
+    return item;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,6 +32,8 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
+  return Math.max(...matrix.map((elem) => Math.max(...elem)));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +52,11 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let total = 0;
+  matrix.map((elem) => {
+    let sum = elem.map((element) => (total += element));
+  });
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,6 +96,13 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  stores.map((elem) => {
+    elem.map((elem, index) => {
+      newArr[index] += elem;
+    });
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,7 +116,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let arr = [];
+
+  data.forEach((cookies, index) => {
+    arr.push({ sales: `${cookies} cookies`, time: hours[index] });
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +158,15 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  
+  return arr.reduce((acc, store) => {
+    const storeQuantity = store.items.reduce((acc, item) => {
+      if (item.name == "Treats") acc += item.quantity;
+      return acc;
+    }, 0);
+    acc += storeQuantity;
+    return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,6 +189,7 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -170,6 +202,10 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  return numbers.reduce((total, item) => {
+    item.forEach((e) => (total *= e));
+    return total;
+  }, 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -190,6 +226,7 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------

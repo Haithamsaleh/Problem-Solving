@@ -8,7 +8,7 @@ Write a function called sortStarWarsCharacters that sorts the characters in the 
 
 let starWarsPeople = [
   {
-    name: "C-3PO",
+    name: "C-3PO",//people???
     height: "167",
     eye_color: "yellow",
   },
@@ -18,7 +18,7 @@ let starWarsPeople = [
     eye_color: "blue",
   },
   {
-    name: "R2-D2",
+    name: "R2-D2",//people???
     height: "96",
     eye_color: "red",
   },
@@ -26,6 +26,9 @@ let starWarsPeople = [
 
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
+  starWarsArr.sort((a,b)=>b.height-a.height)
+  return starWarsArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,6 +39,8 @@ Write a function named removeThree that takes an index and an array. The functio
 
 const removeThree = (idx, arr) => {
   // Solution code here...
+  arr.splice(idx,3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +51,8 @@ Write a function named joinArray that takes an array and joins all of the elemen
 
 const joinArray = (arr) => {
   // Solution code here...
+  return arr.join(" ");
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,6 +71,9 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for(let i=0;i<=str.length;i++) 
+  result.push(str.slice(i, str.length))
+  return result ;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,6 +86,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return arr.split("")
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +131,14 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  // Solution code here... 
+  result = recipe.ingredients.map((ele) => {
+    const s = ele.indexOf(" ");
+    const y = ele.slice(s + 1);
+    return y.slice(y.indexOf(" ") + 1);
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,6 +152,12 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  result = recipe.ingredients.map((item) => {
+    const newString = item.split(" ");
+    return newString.slice(2).join(" ");
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -149,6 +173,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  result= recipe.steps.map((step)=>{
+    return step.split(" ")[0]
+  })
+  return result
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,7 +194,8 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
-};
+  
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal

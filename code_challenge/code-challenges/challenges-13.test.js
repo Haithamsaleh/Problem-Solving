@@ -8,9 +8,11 @@ Write a function named longestString that takes in an array of strings and retur
 
 const longestString = (arr) => {
   // Solution code here...
+  let max = Math.max(...arr.map(item=>item.length))
+  return arr.findIndex((element) => element.length == max)
 };
 
-/* ------------------------------------------------------------------------------------------------
+/* -----------------------d-------------------------------------------------------------------------
 CHALLENGE 2
 
 Write a function named firstLetters that takes in an array of strings and returns an array containing only the first letter of each string.
@@ -20,6 +22,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  return arr.map(item=>item[0])
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,6 +36,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
+  return arr.filter(item=>item.match(/:\)/g))
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,6 +50,12 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  let arr0= []
+  arr.map((item,i)=>{
+   arr0[i]=''+item.match(/\d+/g)
+   arr0[i]=arr0[i].split(',').join('')
+ })
+ return arr0
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,6 +68,9 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  return str.split('').filter((item,i)=>{
+    if(i%2==1){return item}
+  }).join('')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,6 +81,8 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  let found = arr.map(item=>item.match(/:\)/g)?true:false)
+  return !found.includes(false)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,6 +93,8 @@ Write a function named findAnything that takes in an array of strings, along wit
 
 const findAnything = (arr, target) => {
   // Solution code here...
+  return arr.filter(item=>item.includes(target))
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,6 +105,8 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  return arr.every(item=>item.includes(target))
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,6 +123,9 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  return arr.map(item=>{
+    return item.filter(s=>{if(!s.includes('Brook')) return s})
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,11 +180,10 @@ TESTS
 
 All the code below will verify that your functions are working to solve the challenges.
 
-DO NOT CHANGE any of the below code.
-
+DO NOT CHANGE any of the below code.    
+m
 Run your tests from the console: jest challenges-13.test.js
-
------------------------------------------------------------------------------------------------- */
+-----------------------------------------,------------------------------------------------------- */
 
 describe("Testing challenge 1", () => {
   test("It should return an index position of the longest string", () => {
